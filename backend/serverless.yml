@@ -31,12 +31,14 @@ functions:
     timeout: 30
 
     events:
-      - http:
-          path: /
-          method: ANY
-          cors: true
+      - httpApi: '*'
 
-      - http:
-          path: /{proxy+}
-          method: ANY
-          cors: true
+package:
+  patterns:
+    - '!node_modules/aws-sdk/**'
+    - '!tests/**'
+    - '!coverage/**'
+    - '!scripts/**'
+    - '!*.log'
+    - '!*.md'
+    - '!public/**'
