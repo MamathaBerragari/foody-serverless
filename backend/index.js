@@ -53,6 +53,10 @@ app.get("/health", (req, res) => {
 
 });
 
+app.get("/", (req, res) => {
+  res.send("Backend running successfully");
+});
+
 
 // ✅ Routes
 app.use("/api/auth", authRouter);
