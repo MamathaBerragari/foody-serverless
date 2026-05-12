@@ -53,7 +53,7 @@ app.get("/health", (req, res) => {
 
 });
 
-app.get("/", (req, res) => {
+app.get(["/", "/dev"], (req, res) => {
   res.send("Backend running successfully");
 });
 
