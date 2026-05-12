@@ -31,7 +31,15 @@ functions:
     timeout: 30
 
     events:
-      - httpApi: '*'
+  - http:
+      path: /
+      method: ANY
+      cors: true
+
+  - http:
+      path: /{proxy+}
+      method: ANY
+      cors: true
 
 package:
   patterns:
