@@ -30,13 +30,17 @@ functions:
     handler: handler.handler
     events:
       - http:
+          path: /
+          method: ANY
+          cors:
+            origin: 'http://foodway-frontend.s3-website.ap-south-1.amazonaws.com'
+            allowCredentials: true
+
+      - http:
           path: /{proxy+}
           method: ANY
           cors:
             origin: 'http://foodway-frontend.s3-website.ap-south-1.amazonaws.com'
-            headers:
-              - Content-Type
-              - Authorization
             allowCredentials: true
 
 package:
