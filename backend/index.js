@@ -30,28 +30,8 @@ const allowedOrigins = [
 ];
 
 // ✅ CORS Middleware
-app.use(
-  cors({
-    origin: function (origin, callback) {
-      // Allow Postman / mobile apps / server-to-server calls
-      if (!origin) return callback(null, true);
-
-      const normalizedOrigin = origin?.replace(/\/$/, ""); // remove trailing slash
-
-      const isAllowed = allowedOrigins.some((allowed) =>
-        allowed?.replace(/\/$/, "") === normalizedOrigin
-      );
-
-      if (isAllowed) {
-        return callback(null, true);
-      }
-
-      console.log("❌ Blocked by CORS:", origin);
-      return callback(null, false); // better than throwing error
-    },
-    credentials: true,
-  })
-);
+// ✅ CORS Middleware 
+app.use( cors({ origin: function (origin, callback) { if (!origin) return callback(null, true); if (allowedOrigins.includes(origin)) { return callback(null, true); } return callback(new Error("Not allowed by CORS")); }, credentials: true, }) );
 
 // ✅ Middlewares
 app.use(express.json());
