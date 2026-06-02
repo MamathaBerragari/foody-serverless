@@ -30,8 +30,18 @@ const allowedOrigins = [
 ];
 
 // ✅ CORS Middleware
-// ✅ CORS Middleware 
-app.use( cors({ origin: function (origin, callback) { if (!origin) return callback(null, true); if (allowedOrigins.includes(origin)) { return callback(null, true); } return callback(new Error("Not allowed by CORS")); }, credentials: true, }) );
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      if (!origin) return callback(null, true);
+      if (allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      }
+      return callback(new Error("Not allowed by CORS"));
+    },
+    credentials: true,
+  })
+);
 
 // ✅ Middlewares
 app.use(express.json());
