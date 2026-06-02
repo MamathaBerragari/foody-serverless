@@ -26,7 +26,7 @@ const allowedOrigins = [
   "http://127.0.0.1:5173",
   "http://127.0.0.1:5174",
   "http://127.0.0.1:5175",
-  "http://foodway-frontend.s3-website.ap-south-1.amazonaws.com"
+  "http://100.26.171.194"
 ];
 
 // ✅ CORS Middleware
